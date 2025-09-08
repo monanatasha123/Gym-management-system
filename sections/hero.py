@@ -3,11 +3,12 @@ from nicegui import ui,app
 
 def render():
     # big container
-    with ui.element("div").style("background-image: url(./assets/hero.jpg)").classes("h-screen w-screen flex flex-col bg-center justify-center items-center"):
+    with ui.element("div").style("background-image: url(./assets/hero.jpg); background-repeat:no-repeat background-size:cover").classes("h-screen w-screen flex flex-col bg-center justify-center items-centeR"):
         # navbar
-        with ui.element("nav").classes("flex flex row justify-between w-screen fixed left-0 top-0 px-20 py-10"):
-            #logo
-            ui.label("LOGO").classes("text-white font-bold text-2xl") 
+        with ui.element("nav").classes(
+            "flex flex-row justify-between items-center w-full p-4 bg-black/70 fixed left-0 top-0 z-10"
+        ):
+            ui.label("LOGO").classes("text-black font-bold text-2xl") 
 
             #navlinks
            
@@ -20,7 +21,7 @@ def render():
                  {"title":"Contact","path":"/"},
                  {"title": "Gallery","path":"/"}
             ]
-            with ui.row():
+            with ui.row().classes("gap-6"):
                 for item in navLinks:
                     ui.link(item["title"], item["path"]).classes("no-underline uppercase")
 
@@ -34,7 +35,7 @@ def render():
         
 
         # text
-        with ui.element("div").classes("text-3xl text-white font-bold text-center"):
-            ui.label("Welcome to").classes("text-4xl")
-            ui.html("<hi>Fitness Arena</h1>").classes("text-7xl")
-            ui.button("Look Menu")
+        with ui.element("div").classes("text-3xl text-black font-bold text-center mt-20"):
+            ui.label("Welcome to").classes("text-5xl drop-shadow-lg")
+            ui.html("<hi>Fitness Arena</h1>").classes("text-8xl text-black-800 drop-shadow-xl")
+            ui.button("MENU" , color="black-800").classes("mt-6 px-6 py-3 text-lg rounded-full shadow-lg")
